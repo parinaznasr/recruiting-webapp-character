@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import {ATTRIBUTE_LIST} from '../consts';
+import React from 'react';
 import {calculateAbilityModifier} from '../helper/ModiferHelper';
 /***
  * Component for displaying and modifying character attributes.
@@ -32,7 +31,7 @@ const Attributes = ({attributes, setAttributes}) => {
   return (
     <div>
       <h1>Attributes</h1>
-      { ATTRIBUTE_LIST.map((attribute) => (
+      { Object.keys(attributes).map((attribute) => (
         <div key={attribute}>
           <span>{attribute}: {attributes[attribute]} (Modifier: {calculateAbilityModifier(attributes[attribute])})</span>
           <button className='button' onClick={()=> handleDecrease(attribute)}>-</button>

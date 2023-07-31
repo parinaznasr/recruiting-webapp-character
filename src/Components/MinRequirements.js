@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 /***
  * Component for displaying the minimum requirements of a selected class.

@@ -4,15 +4,22 @@ import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 import Attributes from "./Components/Attributes";
 import Classes from "./Components/Classes";
 import MinRequirements from "./Components/MinRequirements";
+import Skills from "./Components/Skills";
 
 function App() {
   // Initialize attributes values with 10 for each attribute
   const initialAttributes= {};
   ATTRIBUTE_LIST.forEach( attribute => initialAttributes[attribute] = 10 );
 
+  // Initialize skills values with 0 for each attribute
+  const initialSkills= {};
+  SKILL_LIST.forEach( skill =>
+    initialSkills[skill.name] = {'attributeModifier': skill.attributeModifier, 'points':0});
+
   const [attributes, setAttributes] = useState(initialAttributes);
   const [num, setNum] = useState(0);
   const [selectedClass, setSelectedClass] = useState(null);
+  const [skills, setSkills] = useState(initialSkills);
 
   return (
     <div className="App">
@@ -41,6 +48,13 @@ function App() {
             />
           </section>
         }
+        <section className="App-section">
+          <Skills
+            skills = {skills}
+            setSkills = {setSkills}
+            attributes = {attributes}
+          />
+        </section>
       </section>
     </div>
   );

@@ -3,9 +3,18 @@ import './App.css';
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 import Attributes from "./Components/Attributes";
 
-
 function App() {
+  // Initialize attributes values with 10 for each attribute
+  const initialAttributes= {};
+  ATTRIBUTE_LIST.forEach( attribute => initialAttributes[attribute] = 10 );
+
+  const [attributes, setAttributes] = useState(initialAttributes);
   const [num, setNum] = useState(0);
+
+  const meetsClassRequirements = (className) => {
+    const classRequirements = CLASS_LIST[className];
+    return ATTRIBUTE_LIST.every((attribute) => attributes[attribute] >= classRequirements[attribute]);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -13,7 +22,17 @@ function App() {
       </header>
       <section className="App-container">
         <section className="App-section">
-          <Attributes/>
+          <Attributes attributes= {attributes} setAttributes={setAttributes}/>
+        </section>
+        <section className="App-section">
+          {Object.keys(CLASS_LIST).map((className) => (
+            <div
+              key={className}
+              className={`class ${meetsClassRequirements(className) ? 'met-requirements' : ''}`}
+            >
+              {className}
+            </div>
+          ))}
         </section>
       </section>
     </div>

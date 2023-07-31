@@ -6,14 +6,8 @@ import {ATTRIBUTE_LIST} from "../consts";
  * Each attribute can be incremented or decremented by 1 using the + and - buttons.
  * @returns {JSX.Element} The Attributes component.
  */
-const Attributes = () => {
-  // Initialize attributes values with 10 for each attribute
-  const initialAttributes= {};
-  ATTRIBUTE_LIST.forEach( attribute => initialAttributes[attribute] = 10 );
-
-  const [attributes, setAttributes] = useState(initialAttributes);
-
-  /**
+const Attributes = ({attributes, setAttributes}) => {
+  /***
    * Increase the value of the given attribute by 1.
    * @param {string} attribute - The name of the attribute to be increased.
    */
@@ -24,7 +18,7 @@ const Attributes = () => {
     }));
   };
 
-  /**
+  /***
    * Decrease the value of the given attribute by 1.
    * @param {string} attribute - The name of the attribute to be decreased.
    */

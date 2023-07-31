@@ -9,7 +9,7 @@ import React, { useState } from 'react';
  */
 
 const MinRequirements= (props) => {
-  const {selectedClass, classList}= props;
+  const {selectedClass, setSelectedClass, classList}= props;
   console.log(classList)
   return (
     <div>
@@ -20,6 +20,7 @@ const MinRequirements= (props) => {
             {item}: {classList[selectedClass][item]}
           </p>)
       }
+      <button className='button' onClick={()=> setSelectedClass(null)}>Close</button>
     </div>
   );
 };

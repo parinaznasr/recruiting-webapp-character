@@ -35,8 +35,17 @@
   margin: 10px;
 }
 
+.item-list {
+  cursor: pointer;
+}
+
 .eligible{
   color: darkred;
+}
+
+.button {
+  margin: 2px;
+  cursor: pointer;
 }
 
 .App-container {

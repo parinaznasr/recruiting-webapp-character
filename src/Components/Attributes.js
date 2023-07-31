@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {ATTRIBUTE_LIST} from "../consts";
-
+import {ATTRIBUTE_LIST} from '../consts';
+import {calculateAbilityModifier} from '../helper/ModiferHelper';
 /***
  * Component for displaying and modifying character attributes.
  * Each attribute can be incremented or decremented by 1 using the + and - buttons.
@@ -34,7 +34,7 @@ const Attributes = ({attributes, setAttributes}) => {
       <h1>Attributes</h1>
       { ATTRIBUTE_LIST.map((attribute) => (
         <div key={attribute}>
-          <span>{attribute}: {attributes[attribute]}</span>
+          <span>{attribute}: {attributes[attribute]} (Modifier: {calculateAbilityModifier(attributes[attribute])})</span>
           <button className='button' onClick={()=> handleDecrease(attribute)}>-</button>
           <button className='button' onClick={()=> handleIncrease(attribute)}>+</button>
         </div>

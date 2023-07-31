@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
 import Attributes from "./Components/Attributes";
+import Classes from "./Components/Classes";
 
 function App() {
   // Initialize attributes values with 10 for each attribute
@@ -25,14 +26,7 @@ function App() {
           <Attributes attributes= {attributes} setAttributes={setAttributes}/>
         </section>
         <section className="App-section">
-          {Object.keys(CLASS_LIST).map((className) => (
-            <div
-              key={className}
-              className={`class ${meetsClassRequirements(className) ? 'met-requirements' : ''}`}
-            >
-              {className}
-            </div>
-          ))}
+          <Classes classList={CLASS_LIST} attributes = {attributes}/>
         </section>
       </section>
     </div>

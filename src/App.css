@@ -35,6 +35,10 @@
   margin: 10px;
 }
 
+.eligible{
+  color: darkred;
+}
+
 .App-container {
   display: flex;
   flex-direction: row;

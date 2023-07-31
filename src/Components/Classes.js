@@ -9,7 +9,7 @@ import {ATTRIBUTE_LIST} from "../consts";
  * @returns {JSX.Element} The Classes component.
  */
 const Classes = (props) => {
-  const {classList , attributes} = props;
+  const {classList , attributes, selectedClass, setSelectedClass} = props;
   /***
    * Check if the minimum requirements for a given class are met.
    * @param {string} className - The name of class.
@@ -20,13 +20,18 @@ const Classes = (props) => {
     return ATTRIBUTE_LIST.every((attribute) => attributes[attribute] >= classRequirements[attribute]);
   };
 
+  const handleClick = (className) => {
+    setSelectedClass(selectedClass === className ? null : className);
+  };
+
   return (
-    <div>
+    <div className='item-list'>
       <h1>Classes</h1>
       {Object.keys(props.classList).map((item) => (
         <div
           key={item}
           className={`class ${isQualified(item)? 'eligible' : ''}`}
+          onClick={() => handleClick(item)}
         >
           {item}
         </div>

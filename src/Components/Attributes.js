@@ -35,8 +35,8 @@ const Attributes = ({attributes, setAttributes}) => {
       { ATTRIBUTE_LIST.map((attribute) => (
         <div key={attribute}>
           <span>{attribute}: {attributes[attribute]}</span>
-          <button onClick={()=> handleDecrease(attribute)}>-</button>
-          <button onClick={()=> handleIncrease(attribute)}>+</button>
+          <button className='button' onClick={()=> handleDecrease(attribute)}>-</button>
+          <button className='button' onClick={()=> handleIncrease(attribute)}>+</button>
         </div>
       ))}
     </div>

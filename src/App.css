@@ -27,6 +27,19 @@
 }
 
 .App-section {
+  background-color: hsl(220deg 13% 13%);
+  color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 4px #464646, 0 -2px 4px #464646, 2px 0 4px #464646, -2px 0 4px #464646;
+  padding: 20px;
+  margin: 10px;
+}
+
+.App-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100vh;
   flex: 1 1 0;
   background-color: hsl(220deg 13% 13%);
   color: white;
